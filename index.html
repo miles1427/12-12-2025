@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Us</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Pinyon+Script&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="landing-page">
+        <div class="overlay"></div> 
+        <div class="content">
+            <h1 class="title">The Beginning</h1> 
+            <p class="subtitle">A tale of distance and devotion</p>
+            <button class="enter-btn" onclick="startJourney()">Enter Our World</button>
+        </div>
+    </div>
+
+    <div id="letter-page" class="hidden">
+        <div class="overlay-light"></div>
+        <div class="letter-container">
+            <p class="date">Month One</p>
+            <div class="letter-scroll-area">
+                <p class="letter-text" id="ghost-text"></p>
+            </div>
+            <p class="signature">- Yours, Forever</p>
+            <button class="next-btn" onclick="nextPage()">Turn the Page</button>
+        </div>
+    </div>
+
+    <div id="memory-page" class="hidden">
+        <div class="overlay"></div>
+        <div class="memory-container">
+            <h2 class="memory-title">Our Timeline</h2>
+            
+            <div class="gallery">
+                <div class="card-holder">
+                    <div class="memory-card" id="card-past" onclick="openFullPage('past')">
+                        <p class="memory-date">The Beginning</p>
+                        <p class="card-hint">(Click to open)</p>
+                    </div>
+                </div>
+
+                <div class="card-holder">
+                    <div class="memory-card" id="card-present" onclick="openFullPage('present')">
+                        <p class="memory-date">Right Now</p>
+                        <p class="card-hint">(Click to open)</p>
+                    </div>
+                </div>
+
+                <div class="card-holder">
+                    <div class="memory-card" id="card-future" onclick="openFullPage('future')">
+                        <p class="memory-date">The Promise</p>
+                        <p class="card-hint">(Click to open)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="page-past" class="hidden full-story-page">
+        <div class="overlay"></div>
+        <div class="story-container">
+            <h2 class="story-title">The Start</h2>
+            <p class="story-text" id="text-past"></p>
+            <button class="back-btn" onclick="backToBridge('past')">Return to Bridge</button>
+        </div>
+    </div>
+
+    <div id="page-present" class="hidden full-story-page">
+        <div class="overlay"></div>
+        <div class="story-container">
+            <h2 class="story-title">Right Now</h2>
+            <p class="story-text" id="text-present"></p>
+            <button class="back-btn" onclick="backToBridge('present')">Return to Bridge</button>
+        </div>
+    </div>
+
+    <div id="page-future" class="hidden full-story-page">
+        <div class="overlay"></div>
+        <div class="story-container">
+            <h2 class="story-title">The Promise</h2>
+            <p class="story-text" id="text-future"></p>
+            <button class="back-btn" onclick="backToBridge('future')">Return to Bridge</button>
+        </div>
+    </div>
+
+    <audio id="bg-music" loop>
+        <source src="wildestD.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
