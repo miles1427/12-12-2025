@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>For Us</title>
     <link rel="stylesheet" href="style.css">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Pinyon+Script&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
@@ -85,7 +86,17 @@
         <div class="story-container">
             <h2 class="story-title">The Promise</h2>
             <p class="story-text" id="text-future"></p>
-            <button class="back-btn" onclick="backToBridge('future')">Return to Bridge</button>
+            <button class="back-btn" onclick="openFinalPage()">I Have One Question...</button>
+        </div>
+    </div>
+
+    <div id="page-final" class="hidden full-story-page">
+        <div class="overlay"></div>
+        <div class="story-container">
+            <h2 class="story-title">Tell Me...</h2>
+            <p class="story-text" id="text-final"></p>
+            
+            <button class="enter-btn" onclick="sendAnswer()">YES (Tell Him)</button>
         </div>
     </div>
 

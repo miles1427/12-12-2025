@@ -1,7 +1,8 @@
-/* --- GLOBAL & LANDING (Keep existing styles) --- */
+/* --- GLOBAL --- */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { background-color: #000; font-family: 'Cinzel Decorative', serif; overflow: hidden; color: #e0e0e0; }
 
+/* --- LANDING PAGE --- */
 #landing-page {
     height: 100vh; width: 100%;
     background-image: url('The Staircase.jpg'); 
@@ -13,10 +14,11 @@ body { background-color: #000; font-family: 'Cinzel Decorative', serif; overflow
 .content { position: relative; z-index: 2; opacity: 0; animation: fadeIn 3s ease-in-out forwards; transform: translateY(-50px); }
 .title { font-family: 'UnifrakturMaguntia', cursive; font-size: 4.5rem; margin-bottom: 10px; color: #f5f5f5; text-shadow: 0 0 25px rgba(255, 255, 255, 0.4); letter-spacing: 2px; animation: ghostPulse 12s ease-in-out infinite; }
 .subtitle { font-family: 'Cinzel Decorative', serif; font-size: 1rem; letter-spacing: 5px; text-transform: uppercase; margin-bottom: 45px; color: #b3b3b3; font-weight: bold; }
+
 .enter-btn { padding: 15px 50px; background: rgba(0, 0, 0, 0.7); border: 2px solid #f5f5f5; color: #f5f5f5; font-family: 'Cinzel Decorative', serif; font-size: 1rem; letter-spacing: 3px; cursor: pointer; transition: all 0.4s ease; text-transform: uppercase; box-shadow: 0 0 20px rgba(255, 255, 255, 0.1); }
 .enter-btn:hover { background: #f5f5f5; color: #000; box-shadow: 0 0 40px rgba(255, 255, 255, 0.6); transform: scale(1.05); }
 
-/* --- LETTER PAGE (Keep existing styles) --- */
+/* --- LETTER PAGE --- */
 .hidden { display: none; }
 #letter-page {
     height: 100vh; width: 100%;
@@ -42,7 +44,7 @@ body { background-color: #000; font-family: 'Cinzel Decorative', serif; overflow
 .next-btn { background: transparent; border: none; color: #444; font-family: 'Cinzel Decorative', serif; font-size: 1rem; cursor: pointer; transition: color 0.3s ease; }
 .next-btn:hover { color: #aeb4b8; text-shadow: 0 0 10px rgba(174, 180, 184, 0.5); }
 
-/* --- MEMORY BRIDGE (MENU) - UPDATED --- */
+/* --- MEMORY BRIDGE --- */
 #memory-page {
     height: 100vh; width: 100%;
     background-image: url('bridge.jpg'); 
@@ -50,64 +52,38 @@ body { background-color: #000; font-family: 'Cinzel Decorative', serif; overflow
     position: relative; display: flex; justify-content: center; align-items: center;
     opacity: 0; transition: opacity 2s ease-in;
 }
-.memory-container { position: relative; z-index: 2; width: 95%; max-width: 1200px; text-align: center; } /* Increased max-width */
-.memory-title { font-family: 'UnifrakturMaguntia', cursive; font-size: 4rem; color: #f5f5f5; margin-bottom: 50px; text-shadow: 0 0 20px rgba(255, 255, 255, 0.3); } /* Increased font size and margin */
-.gallery { display: flex; justify-content: center; gap: 50px; align-items: center; flex-wrap: wrap; } /* Increased gap */
-.card-holder { width: 300px; height: 500px; position: relative; } /* Increased width and height */
+.memory-container { position: relative; z-index: 2; width: 95%; max-width: 1200px; text-align: center; }
+.memory-title { font-family: 'UnifrakturMaguntia', cursive; font-size: 4rem; color: #f5f5f5; margin-bottom: 50px; text-shadow: 0 0 20px rgba(255, 255, 255, 0.3); }
+.gallery { display: flex; justify-content: center; gap: 50px; align-items: center; flex-wrap: wrap; }
+.card-holder { width: 300px; height: 500px; position: relative; }
 
-/* UPDATED: Clickable Cards with Images */
+/* CARDS */
 .memory-card {
-    /* Removed the solid background-color */
     border: 1px solid #444;
     padding: 20px; width: 100%; height: 100%; 
     display: flex; flex-direction: column; align-items: center; justify-content: center;
-    border-radius: 12px; box-shadow: 0 15px 40px rgba(0,0,0,0.9); /* Increased border-radius and box-shadow */
+    border-radius: 12px; box-shadow: 0 15px 40px rgba(0,0,0,0.9);
     cursor: pointer; transition: all 0.4s ease;
-    /* Added background properties for images */
-    background-size: cover;
-    background-position: center;
-    position: relative;
-    overflow: hidden;
+    background-size: cover; background-position: center;
+    position: relative; overflow: hidden;
 }
-
-/* Add a dark overlay on hover to make text pop */
 .memory-card::before {
-    content: '';
-    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.6); /* Dark overlay */
-    transition: background 0.4s ease;
-    z-index: 1;
+    content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.6); transition: background 0.4s ease; z-index: 1;
 }
-.memory-card:hover::before {
-    background: rgba(0, 0, 0, 0.4); /* Lighter overlay on hover */
-}
+.memory-card:hover::before { background: rgba(0, 0, 0, 0.4); }
+.memory-card p { position: relative; z-index: 2; }
+.memory-card:hover { border-color: #f5f5f5; transform: translateY(-15px); box-shadow: 0 0 30px rgba(255, 255, 255, 0.3); }
 
-/* Ensure text is above the overlay */
-.memory-card p {
-    position: relative;
-    z-index: 2;
-}
+/* --- CARD IMAGES --- */
+#card-past { background-image: url('the start.jpg'); } /* Morticia & Gomez */
+#card-present { background-image: url('right now.jpg'); } /* Joker & Harley */
+#card-future { background-image: url('the promise.jpg'); } /* Skeleton Dance */
 
-/* SPECIFIC CARD IMAGES */
-#card-past {
-    background-image: url('the start.jpg'); /* Morticia & Gomez */
-}
-#card-present {
-    background-image: url('right now.jpg'); /* Skeleton Couple */
-}
-#card-future {
-    background-image: url('the promise.jpg'); /* Joker & Harley */
-}
+.memory-date { font-family: 'Cinzel Decorative', serif; color: #f5f5f5; font-size: 1.8rem; text-transform: uppercase; margin-bottom: 15px; text-shadow: 0 2px 5px rgba(0,0,0,1); }
+.card-hint { font-size: 1rem; color: #ccc; font-family: sans-serif; letter-spacing: 1px; text-shadow: 0 1px 3px rgba(0,0,0,1); }
 
-.memory-card:hover {
-    border-color: #f5f5f5;
-    transform: translateY(-15px); /* Increased transform */
-    box-shadow: 0 0 30px rgba(255, 255, 255, 0.3); /* Increased box-shadow */
-}
-.memory-date { font-family: 'Cinzel Decorative', serif; color: #f5f5f5; font-size: 1.8rem; text-transform: uppercase; margin-bottom: 15px; text-shadow: 0 2px 5px rgba(0,0,0,1); } /* Increased font size */
-.card-hint { font-size: 1rem; color: #ccc; font-family: sans-serif; letter-spacing: 1px; text-shadow: 0 1px 3px rgba(0,0,0,1); } /* Increased font size */
-
-/* --- FULL SCREEN STORY PAGES (Keep existing styles) --- */
+/* --- FULL SCREEN STORIES --- */
 .full-story-page {
     height: 100vh; width: 100%;
     position: absolute; top: 0; left: 0;
@@ -115,9 +91,12 @@ body { background-color: #000; font-family: 'Cinzel Decorative', serif; overflow
     opacity: 0; transition: opacity 1.5s ease-in-out;
     background-size: cover; background-position: center;
 }
+
+/* PAGE BACKGROUNDS */
 #page-past { background-image: url('trees.jpg'); }
 #page-present { background-image: url('THE library.jpg'); }
 #page-future { background-image: url('The Balcony.jpg'); }
+#page-final { background-image: url('The Staircase.jpg'); }
 
 .story-container {
     position: relative; z-index: 5;
@@ -129,8 +108,17 @@ body { background-color: #000; font-family: 'Cinzel Decorative', serif; overflow
     transform: translateY(20px); animation: fadeInUp 1s forwards;
 }
 .story-title { font-family: 'UnifrakturMaguntia', cursive; font-size: 2.5rem; color: #e0e0e0; margin-bottom: 20px; }
-.story-text { font-family: 'Pinyon Script', cursive; color: #ccc; font-size: 1.6rem; line-height: 1.6; min-height: 200px; max-height: 50vh; overflow-y: auto; margin-bottom: 30px; padding-right: 15px; text-shadow: 0 2px 2px #000; }
-.story-text::-webkit-scrollbar { width: 5px; } .story-text::-webkit-scrollbar-thumb { background: #555; border-radius: 4px; } .story-text::-webkit-scrollbar-track { background: transparent; }
+
+/* SCROLLABLE TEXT */
+.story-text { 
+    font-family: 'Pinyon Script', cursive; color: #ccc; font-size: 1.6rem; line-height: 1.6; 
+    min-height: 200px; max-height: 50vh; overflow-y: auto; 
+    margin-bottom: 30px; padding-right: 15px; text-shadow: 0 2px 2px #000; 
+}
+.story-text::-webkit-scrollbar { width: 5px; } 
+.story-text::-webkit-scrollbar-thumb { background: #555; border-radius: 4px; } 
+.story-text::-webkit-scrollbar-track { background: transparent; }
+
 .back-btn { background: transparent; border: 1px solid #666; color: #888; padding: 10px 30px; font-family: 'Cinzel Decorative', serif; cursor: pointer; transition: all 0.3s; text-transform: uppercase; letter-spacing: 2px; }
 .back-btn:hover { border-color: #f5f5f5; color: #f5f5f5; box-shadow: 0 0 10px rgba(255,255,255,0.2); }
 
