@@ -8,6 +8,7 @@ const presentStory = "So, as you read about our beginning, it was all very lame 
 const futureStory = "See, the thing about promises is that they’re made when there’s an issue of trust. | When trust shakes, people make promises and hope they can live through it. | | But I don’t want us to just live by hope. | I want to give you a life where you never even have a second thought about me or about us. | | So I won’t make a promise to you. | But I will say a few things: | | I will make you Maggi at 3:30 AM after watching some gothic, blood-filled show like Hannibal, or we can eat while watching it. | Then we can wash the dishes together. | After that, we can move the furniture so we can dance… | or we can fight too, since we both know karate. | Just go hard on me. | | And we will have to be careful while doing all this, because as we want, there will be so many pets—dogs, cats, even birds—so we can’t be reckless. | | And, and, and… I want to quote someone. | Maybe you remember him: | | “What is it to admire a woman? | To look at her and feel inspiration. | To delight in her beauty, so much so that your defenses crumble, that you would willingly take on any pain, any burden for her. | To honor her being with your deeds and words. | That is what the true poet describes.” | — Benedict Bridgerton | | His words are so great. | My defenses really do crumble when it comes to you. | | I don’t want anything from this life. | I just want you. | You’re the only reason I want to be successful—so I can make you happy, so I can be worthy of you. | | That’s how I want to show my honor for you: with my deeds. | | And about words… I’m not that good, so I’m sorry.";
 
 const finalText = "Hey baby, | | You know, I once heard that in a healthy relationship, a man falls for his woman every second, every minute, every hour, and every moment. | And I used to think, how is that even possible? | How can someone fall for the same person again and again and again? | | But now when I look at you, I see how truthful that line is — because I’m falling for you every second, every minute, every hour, every day, every week, every month. | | We haven’t crossed the year line yet, but I know I will love you every year, every decade, every century. | | I will fall for you in every universe and also every multiverse. | | I will fall for you even if we’re cats, even if we’re ravens — I will fall for you no matter what. | And the fall score is 2,628,002. | | I know, I know… I’m ahead of you. | | And that feeling isn’t just because of your eyes or your hair — it’s you. | | I always say I love your eyes more, but that’s a lie. | I love you the most. | | And as Lord Anthony said, | “You’re the bane of my existence, and there is no place on this earth far enough to make me forget you, or even imagine anyone else other than you.” | | So tell me… | | Will you be mine — and only mine — for the rest of my life? | | Will you be the parent of our kids — little Ramlal and little Gangadevi? | | Will you??? | | They need a father figure who drinks brown liquor and has a big— | | …never mind. | | Tell me… | | Will you be my mama and their pappa?";
+
 const speed = 50; 
 
 /* --- JOURNEY START --- */
@@ -58,7 +59,6 @@ function typeWriter(elementId, text, index, callback) {
             element.innerHTML += char;
         }
         
-        // Auto-scroll logic
         if (element.classList.contains('letter-text') || element.classList.contains('story-text')) {
              element.scrollTop = element.scrollHeight;
         }
@@ -71,7 +71,7 @@ function typeWriter(elementId, text, index, callback) {
     }
 }
 
-/* --- NEXT PAGE (Letter -> Bridge) --- */
+/* --- NEXT PAGE --- */
 function nextPage() {
     const letterPage = document.getElementById('letter-page');
     const memoryPage = document.getElementById('memory-page');
@@ -90,7 +90,7 @@ function nextPage() {
     }, 2000);
 }
 
-/* --- BRIDGE -> FULL PAGE LOGIC --- */
+/* --- BRIDGE -> STORY --- */
 let readStatus = { past: false, present: false, future: false };
 
 function openFullPage(pageType) {
@@ -140,15 +140,50 @@ function backToBridge(pageType) {
     }, 1000);
 }
 
-/* --- FINAL PAGE LOGIC --- */
-function openFinalPage() {
+/* --- NEW: OPEN VIDEO PAGE --- */
+function openVideoPage() {
     const futurePage = document.getElementById('page-future');
-    const finalPage = document.getElementById('page-final');
+    const videoPage = document.getElementById('page-video');
+    const music = document.getElementById('bg-music');
 
+    // Fade out Promise page
     futurePage.style.opacity = '0';
 
     setTimeout(() => {
         futurePage.style.display = 'none';
+        
+        // Open Video Page
+        videoPage.classList.remove('hidden');
+        videoPage.style.display = 'flex';
+
+        setTimeout(() => {
+            videoPage.style.opacity = '1';
+            
+            // Lower music volume so video can be heard
+            music.volume = 0.2; 
+        }, 100);
+    }, 1000);
+}
+
+/* --- VIDEO -> FINAL QUESTION --- */
+function openFinalPageFromVideo() {
+    const videoPage = document.getElementById('page-video');
+    const finalPage = document.getElementById('page-final');
+    const music = document.getElementById('bg-music');
+    const videoElement = document.getElementById('final-video');
+
+    // Pause the video
+    if(videoElement) {
+        videoElement.pause();
+    }
+
+    // Restore Music Volume
+    music.volume = 0.9;
+
+    videoPage.style.opacity = '0';
+
+    setTimeout(() => {
+        videoPage.style.display = 'none';
         finalPage.classList.remove('hidden');
         finalPage.style.display = 'flex';
 
@@ -161,11 +196,10 @@ function openFinalPage() {
     }, 1000);
 }
 
+/* --- WHATSAPP LOGIC --- */
 function sendAnswer() {
-    // ENTER YOUR PHONE NUMBER BELOW (e.g., 919876543210)
-    const phoneNumber = "919998661427"; 
-    
+    // ENTER YOUR NUMBER HERE
+    const phoneNumber = "91XXXXXXXXXX"; 
     const message = "Yes, I will be your mama and their pappa! 💍 (And yes to Ramlal & Gangadevi!)";
     window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
-
 }
