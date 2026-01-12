@@ -76,9 +76,9 @@ body { background-color: #000; font-family: 'Cinzel Decorative', serif; overflow
 .memory-card:hover { border-color: #f5f5f5; transform: translateY(-15px); box-shadow: 0 0 30px rgba(255, 255, 255, 0.3); }
 
 /* --- CARD IMAGES --- */
-#card-past { background-image: url('the start.jpg'); } /* Morticia & Gomez */
-#card-present { background-image: url('right now.jpg'); } /* Joker & Harley */
-#card-future { background-image: url('the promise.jpg'); } /* Skeleton Dance */
+#card-past { background-image: url('download.jpg'); } /* Morticia & Gomez */
+#card-present { background-image: url('Joker and Harley Quinn.jpg'); } /* Joker & Harley */
+#card-future { background-image: url('Eternally dancing.jpg'); } /* Skeleton Dance */
 
 .memory-date { font-family: 'Cinzel Decorative', serif; color: #f5f5f5; font-size: 1.8rem; text-transform: uppercase; margin-bottom: 15px; text-shadow: 0 2px 5px rgba(0,0,0,1); }
 .card-hint { font-size: 1rem; color: #ccc; font-family: sans-serif; letter-spacing: 1px; text-shadow: 0 1px 3px rgba(0,0,0,1); }
@@ -96,6 +96,7 @@ body { background-color: #000; font-family: 'Cinzel Decorative', serif; overflow
 #page-past { background-image: url('trees.jpg'); }
 #page-present { background-image: url('THE library.jpg'); }
 #page-future { background-image: url('The Balcony.jpg'); }
+#page-video { background-image: url('The Staircase.jpg'); }
 #page-final { background-image: url('The Staircase.jpg'); }
 
 .story-container {
@@ -121,6 +122,14 @@ body { background-color: #000; font-family: 'Cinzel Decorative', serif; overflow
 
 .back-btn { background: transparent; border: 1px solid #666; color: #888; padding: 10px 30px; font-family: 'Cinzel Decorative', serif; cursor: pointer; transition: all 0.3s; text-transform: uppercase; letter-spacing: 2px; }
 .back-btn:hover { border-color: #f5f5f5; color: #f5f5f5; box-shadow: 0 0 10px rgba(255,255,255,0.2); }
+
+/* --- VIDEO WRAPPER --- */
+.video-wrapper {
+    width: 100%; max-width: 600px;
+    border: 2px solid #555; box-shadow: 0 0 30px rgba(0,0,0,0.8);
+    background: #000; margin: 0 auto;
+}
+video { width: 100%; height: auto; display: block; }
 
 @keyframes fadeIn { 0% { opacity: 0; transform: translateY(20px); } 100% { opacity: 1; transform: translateY(-50px); } }
 @keyframes spreadOpen { 0% { opacity: 0; transform: scaleX(0) scaleY(0.02); } 30% { opacity: 1; transform: scaleX(1) scaleY(0.02); } 100% { opacity: 1; transform: scaleX(1) scaleY(1); } }
